@@ -19,12 +19,14 @@ export class ActionSheetPage implements OnInit {
     const actionSheet = await this.actionSheetCtrl.create({
       header: 'Albumnes',
       cssClass: 'my-custom-class',
+      backdropDismiss:false,
       buttons: [{
         text: 'Delete',
         role: 'destructive',
         icon: 'trash-outline',
         cssClass: 'rojo',
         id: 'delete-button',
+
         data: {
           type: 'delete'
         },

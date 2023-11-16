@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-alert',
@@ -13,9 +14,20 @@ export class AlertPage {
   setOpen(isOpen: boolean) {
     this.isAlertOpen = isOpen;
   }
-  constructor() { }
+  constructor(private alertCtrl: AlertController) { }
 
   ngOnInit() {
   }
+  async presentAlert() {
+    const alert = await this.alertCtrl.create({
+      backdropDismiss: false,
+      header: 'Alert',
+      subHeader: 'Important message',
+      message: 'This is an alert!',
+      buttons: ['OK']
+    });
+    await alert.present();
+  };
+
 
 }
